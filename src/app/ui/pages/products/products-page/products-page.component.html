@@ -2,7 +2,7 @@
   <mat-toolbar-row>
     <span>Adoclic Demo App</span>
     <span class="spacer"></span>
-    <button mat-raised-button color="warn">Logout</button>
+    <button mat-raised-button color="warn" (click)="logout()">Logout</button>
   </mat-toolbar-row>
 </mat-toolbar>
 
@@ -12,6 +12,26 @@
   </div>
 
   <div class="table-container">
+    <form action="" *ngIf="options.length > 0">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input
+          matInput
+          [formControl]="filterFormControl"
+          [matAutocomplete]="auto"
+          placeholder="Ex. Mia"
+          #input
+        />
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </form>
     <div class="mat-elevation-z8">
       <table mat-table [dataSource]="products">
         <ng-container matColumnDef="id">
@@ -54,7 +74,7 @@
       </table>
 
       <mat-paginator
-        [pageSizeOptions]="[5, 10, 20]"
+        [pageSizeOptions]="pageSizeOptions"
         showFirstLastButtons
         aria-label="Select page of periodic elements"
       >
