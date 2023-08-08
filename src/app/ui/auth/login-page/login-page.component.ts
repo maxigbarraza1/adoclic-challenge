@@ -30,7 +30,6 @@ export class LoginPageComponent implements OnInit {
     const { email, password } = this.loginForm.value;
     this._authService.login(email, password).subscribe({
       next: (resp) => {
-        console.log(resp);
         if (resp.success) {
           this._router.navigate(['/']);
         } else {
