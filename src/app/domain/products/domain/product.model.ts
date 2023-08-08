@@ -4,10 +4,14 @@ export interface IDomainProduct {
   price: number;
   image: string;
   category: string;
+  rating: {
+    rate: number;
+    count: number;
+  };
 }
 
 export interface IDomainRequestProduct extends IDomainProduct {
-  id: string;
+  id: number;
 }
 
 export interface IDomainProductCategories {
