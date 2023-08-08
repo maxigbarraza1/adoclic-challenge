@@ -21,15 +21,13 @@ export class AuthApiService implements IAuthApiService {
     private _router: Router
   ) {}
 
-  login(email: string, password: string): any {
-    setTimeout(() => {
-      if (email != this.userMatch.email)
-        return of({ error: 'Email is not valid' });
-      if (password != this.userMatch.password)
-        return of({ error: 'Password is not valid' });
-      this._localStorageService.setItem('token', this.tokenExample);
-      return of({ success: true });
-    }, 1500);
+  login(email: string, password: string) {
+    if (email != this.userMatch.email)
+      return of({ error: 'Email is not valid' });
+    if (password != this.userMatch.password)
+      return of({ error: 'Password is not valid' });
+    this._localStorageService.setItem('token', this.tokenExample);
+    return of({ success: true });
   }
 
   logout(): void {
