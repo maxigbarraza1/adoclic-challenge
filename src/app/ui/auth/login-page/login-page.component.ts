@@ -38,8 +38,7 @@ export class LoginPageComponent implements OnInit {
           if (resp.success) {
             this._router.navigate(['/']);
           } else {
-            this._openErrorDialog();
-            console.log('ERROR: ', resp.error);
+            this._openErrorDialog(resp.error);
           }
         },
         error: () => {},
@@ -57,7 +56,8 @@ export class LoginPageComponent implements OnInit {
     });
   }
 
-  private _openErrorDialog(): void {
-    this._modalService.open(ErrorDialogComponent);
+  private _openErrorDialog(error: string): void {
+    const modalRef = this._modalService.open(ErrorDialogComponent);
+    modalRef.componentInstance.errorMsg = error;
   }
 }
