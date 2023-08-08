@@ -1,5 +1,6 @@
 .login-container {
   height: 100vh;
+  background-image: linear-gradient(#3f51b5 50%, #ffffff 0%);
 
   .login-card-container {
     background-color: #ffffff;
@@ -9,6 +10,7 @@
     padding: 1.5rem;
 
     form {
+      padding-bottom: 20px;
       .card-login {
         border-radius: 0px 0px 4px 4px;
         text-align: center;
@@ -19,7 +21,7 @@
           justify-content: center;
           flex-wrap: wrap;
           img {
-            max-width: 60%;
+            max-width: 70%;
           }
         }
 
@@ -32,6 +34,9 @@
 
         .card-actions {
           margin: 0 10px;
+          button {
+            width: 40%;
+          }
         }
 
         mat-card-content,
@@ -41,6 +46,33 @@
 
         img {
           margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+h2 {
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+@media only screen and (max-width: 1023px) and (min-width: 700px) {
+  .login-container {
+    .login-card-container {
+      width: 60vw;
+      form {
+        .card-login {
+          .logo-container {
+            img {
+              max-width: 40%;
+            }
+          }
         }
       }
     }
