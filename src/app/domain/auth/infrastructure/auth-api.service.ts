@@ -22,10 +22,11 @@ export class AuthApiService implements IAuthApiService {
   ) {}
 
   login(email: string, password: string) {
-    if (email != this.userMatch.email)
-      return of({ error: 'Email is not valid' });
-    if (password != this.userMatch.password)
-      return of({ error: 'Password is not valid' });
+    if (email != this.userMatch.email || password != this.userMatch.password) {
+      return of({
+        error: 'The email or password entered is not correct, enter it again.',
+      });
+    }
     this._localStorageService.setItem('token', this.tokenExample);
     return of({ success: true });
   }
