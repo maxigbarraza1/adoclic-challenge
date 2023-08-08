@@ -20,7 +20,7 @@
             />
 
             <mat-error *ngIf="loginForm.get('email')?.touched">
-              {{ loginForm.get("email")!.errors }}
+              {{ loginForm.get("email")!.errors | errorMessage }}
             </mat-error>
           </mat-form-field>
 
@@ -35,7 +35,7 @@
             />
 
             <mat-error *ngIf="loginForm.get('password')?.touched">
-              {{ loginForm.get("password")!.errors }}
+              {{ loginForm.get("password")!.errors | errorMessage }}
             </mat-error>
           </mat-form-field>
         </mat-card-content>
