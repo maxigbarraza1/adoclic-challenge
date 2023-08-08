@@ -1,0 +1,21 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  padding: 20px;
+
+  .header {
+    margin: 20px 0;
+    mat-icon {
+      transform: scale(2);
+    }
+  }
+
+  .title,
+  .description {
+    margin: 10px 0;
+  }
+}
