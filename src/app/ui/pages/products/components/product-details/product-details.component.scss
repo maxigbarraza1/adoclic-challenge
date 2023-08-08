@@ -1,0 +1,16 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.product-details-container {
+  .product-details-header,
+  .price-container {
+    display: flex;
+    flex-direction: row;
+  }
+
+  img {
+    max-width: 250px;
+    max-height: 250px;
+  }
+}
