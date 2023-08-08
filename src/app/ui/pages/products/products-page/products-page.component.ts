@@ -71,8 +71,9 @@ export class ProductsPageComponent implements OnInit, AfterViewInit, OnDestroy {
     this.subscriptions.forEach((sub) => sub.unsubscribe());
   }
 
-  openProductDetails(): void {
-    this._modalService.open(ProductDetailsComponent);
+  openProductDetails(element: IDomainRequestProduct): void {
+    const modalRef = this._modalService.open(ProductDetailsComponent);
+    modalRef.componentInstance.product = element;
   }
 
   logout(): void {
