@@ -9,3 +9,7 @@ export interface IApiRequestProduct {
 export interface IDomainRequestProduct extends IApiRequestProduct {
   readonly id: string;
 }
+
+export interface IApiRequestProductCategories {
+  readonly categories: string[];
+}

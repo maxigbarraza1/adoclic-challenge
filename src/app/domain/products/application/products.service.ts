@@ -13,7 +13,11 @@ export class ProductsService {
     private _productApiService: IProductsApiService
   ) {}
 
-  getProducts(): Observable<IDomainRequestProduct[]> {
-    return this._productApiService.getProducts();
+  getProducts(limit?: number): Observable<IDomainRequestProduct[]> {
+    return this._productApiService.getProducts(limit);
+  }
+
+  getProductCategories(): Observable<string[]> {
+    return this._productApiService.getProductCategories();
   }
 }

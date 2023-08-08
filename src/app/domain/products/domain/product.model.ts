@@ -9,3 +9,7 @@ export interface IDomainProduct {
 export interface IDomainRequestProduct extends IDomainProduct {
   id: string;
 }
+
+export interface IDomainProductCategories {
+  categories: string[];
+}

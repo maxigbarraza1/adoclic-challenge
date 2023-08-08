@@ -12,9 +12,16 @@ export class ProductsApiService implements IProductsApiService {
 
   constructor(private _httpClient: HttpClient) {}
 
-  getProducts(): Observable<IDomainRequestProduct[]> {
-    return this._httpClient.get<IDomainRequestProduct[]>(
-      `${this.API}/products`
-    );
+  getProducts(limit?: number): Observable<IDomainRequestProduct[]> {
+    let URL = `${this.API}/products`;
+    if (limit) {
+      URL = `${this.API}/products?limit=${limit}`;
+    }
+    return this._httpClient.get<IDomainRequestProduct[]>(URL);
+  }
+
+  getProductCategories(): Observable<string[]> {
+    const URL = `${this.API}/products/categories`;
+    return this._httpClient.get<string[]>(URL);
   }
 }
