@@ -1,1 +1,57 @@
-<p>login-page works!</p>
+<div class="login-container flex-column-center-center">
+  <h2>Angular Demo: Adoclic</h2>
+  <div class="login-card-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <mat-card class="card-login">
+        <div class="logo-container">
+          <img mat-card-image src="/assets/logo-top-bar.svg" alt="Logo" />
+        </div>
+
+        <mat-card-content>
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+              type="email"
+              name="email"
+              formControlName="email"
+              matInput
+              autofocus
+              placeholder="example@mail.com"
+            />
+
+            <mat-error *ngIf="loginForm.get('email')?.touched">
+              {{ loginForm.get("email")!.errors }}
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input
+              name="password"
+              formControlName="password"
+              matInput
+              placeholder="password"
+              type="password"
+            />
+
+            <mat-error *ngIf="loginForm.get('password')?.touched">
+              {{ loginForm.get("password")!.errors }}
+            </mat-error>
+          </mat-form-field>
+        </mat-card-content>
+
+        <mat-card-actions class="card-actions flex-row-center-center">
+          <button mat-flat-button color="primary" type="submit">
+            <ng-container *ngIf="!isLoading; else isSending">
+              Login
+            </ng-container>
+            <ng-template #isSending>
+              <mat-spinner color="accent" [diameter]="25"></mat-spinner>
+            </ng-template>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </form>
+    <p>user: user@demo.com | pass:123456</p>
+  </div>
+</div>
