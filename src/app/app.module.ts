@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { AUTH_API_PROVIDER } from './domain/auth/infrastructure/providers/auth-api.provider';
+import { PRODUCT_API_PROVIDER } from './domain/products/infrastructure/providers/products-api.provider';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [PRODUCT_API_PROVIDER, AUTH_API_PROVIDER],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
